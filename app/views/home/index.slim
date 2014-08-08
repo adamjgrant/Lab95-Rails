@@ -1,62 +1,19 @@
 aside.acss-sidebar
-  h1 Datasets
-  ul
-    li
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit 
-          | e
-          .tooltip Edit
-        span#edit
-          | d
-          .tooltip Delete
-    li.edit
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit e
-    li
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit e
-    li
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit e
-
-  h1 Datasets
-  ul
-    li
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit e
-    li
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit e
-    li
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit e
-    li
-      a(href="#") 
-        | Dataset 1
-      input type="text" value="Dataset 1" data-href="/a/b/c/file.json"
-      aside.tools
-        span#edit e
+  div(ng-repeat="section in sections")
+    h1 
+      | {{section.title}}
+    ul
+      li(ng-repeat="option in section.options")
+        a(href="#") 
+          | {{option.title}}
+        input type="text" value="{{option.title}}" data-href="/a/b/c/file.json"
+        aside.tools
+          span#edit 
+            | e
+            .tooltip Edit
+          span#edit
+            | d
+            .tooltip Delete
 
 main.acss-mainpane
   p No datasets found
