@@ -3,12 +3,6 @@ lab95 = angular.module('lab95', []).config ($interpolateProvider) ->
 
 lab95.controller 'ViewCtrl', ($scope) ->
 
-  # Default data for new panel
-  defaultPanel =
-    title: 'New Setting'
-    route: ''
-    settings: null
-
   # Set of data and CRUD functions for panels
   $scope.panel = 
     sections: [
@@ -25,7 +19,13 @@ lab95.controller 'ViewCtrl', ($scope) ->
       ]
     ]
     create: (section) ->
-      section.options.push JSON.parse JSON.stringify defaultPanel
+      # Default data for new panel
+      defaultPanel =
+        title: 'New Setting'
+        route: ''
+        settings: null
+
+      section.options.push defaultPanel
 
     read: ->
     update: ->
