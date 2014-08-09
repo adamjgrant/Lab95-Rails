@@ -28,7 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     angularjs-rails (1.2.21)
-    appcss (0.0.3)
+    appcss (0.0.4)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     coffee-rails (4.0.1)

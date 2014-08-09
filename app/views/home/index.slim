@@ -1,18 +1,30 @@
 aside.acss-sidebar
-  div(ng-repeat="section in sections")
-    h1 
-      | {{section.title}}
+  header
+    h1 Account
+  ul
+    li
+      a(href="") Settings
+    li
+      a(href="") Statistics
+  div(ng-repeat="section in panel.sections")
+    header
+      h1 
+        | {{section.title}}
+      aside.tools
+        span(ng-click="panel.create(section)")
+          span.fa.fa-plus
+          .tooltip Add
     ul
       li(ng-repeat="option in section.options")
-        a(href="#") 
+        a(href="{{option.route}}") 
           | {{option.title}}
         input type="text" value="{{option.title}}" data-href="/a/b/c/file.json"
         aside.tools
           span#edit 
-            | e
+            span.fa.fa-pencil
             .tooltip Edit
           span#edit
-            | d
+            span.fa.fa-trash-o
             .tooltip Delete
 
 main.acss-mainpane
