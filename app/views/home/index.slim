@@ -15,7 +15,7 @@ aside.acss-sidebar
           span.fa.fa-plus
           .tooltip Add
     ul
-      li(ng-repeat="option in section.options")
+      li(ng-repeat="option in section.options" class="{{ option.edit ? 'edit' : '' }}")
         a(href="{{option.route}}") 
           | {{option.title}}
         input type="text" value="{{option.title}}" data-href="/a/b/c/file.json"

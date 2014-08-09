@@ -24,6 +24,7 @@ lab95.controller 'ViewCtrl', ($scope) ->
         title: 'New Setting'
         route: ''
         settings: null
+        edit: true
 
       section.options.push defaultPanel
 
