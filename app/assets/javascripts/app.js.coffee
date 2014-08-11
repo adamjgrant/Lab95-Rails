@@ -29,5 +29,7 @@ lab95.controller 'ViewCtrl', ($scope) ->
       section.options.push defaultPanel
 
     read: ->
-    update: ->
+    update: (option) ->
+      option.edit = true
+
     delete: ->
