@@ -7,12 +7,12 @@ html(ng-app="lab95")
     = csrf_meta_tags
     script type="text/javascript" src="//use.typekit.net/lky1ayb.js"
     script try{Typekit.load();}catch(e){}
-    title Lab95
-  body(ng-controller="ViewCtrl")
+    title #{SITENAME}
+  body
     nav.acss-navbar
       ul
         li
-          a(href="/") Lab95
+          a(href="/") #{SITENAME}
 
     == yield
 

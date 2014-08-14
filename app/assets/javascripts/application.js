@@ -17,3 +17,4 @@
 //= require angular-route
 //= require home
 //= require app
+//= require_tree ./controllers/
