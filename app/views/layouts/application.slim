@@ -9,11 +9,10 @@ html(ng-app="lab95")
     script try{Typekit.load();}catch(e){}
     title Lab95
   body(ng-controller="ViewCtrl")
-    header.acss-header
-      nav
-        ul
-          li
-            a(href="/") Lab95
+    nav.acss-navbar
+      ul
+        li
+          a(href="/") Lab95
 
     == yield
 

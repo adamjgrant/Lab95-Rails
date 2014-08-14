@@ -30,7 +30,7 @@ gem 'slim'
 gem 'appcss'
 gem 'angularjs-rails'
 gem 'font-awesome-rails'
-
+gem 'foreman'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
