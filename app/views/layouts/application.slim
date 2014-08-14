@@ -51,6 +51,7 @@ html(ng-app="lab95")
               .tooltip Delete
 
     main.acss-mainpane
-      = content_for?(:content) ? yield(:content) : yield
+      .acss-readable-container
+        = content_for?(:content) ? yield(:content) : yield
 
     footer
