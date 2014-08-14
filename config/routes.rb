@@ -13,7 +13,14 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :docs
-  get 'docs/:id' => 'docs#index'
+
+  # Authentication
+  get 'login' => 'authentication#login'
+  get 'signup' => 'authentication#signup'
+
+  Lab95Rails::Application.routes.draw do
+    resources :users
+  end
 
   # Example resource route with options:
   #   resources :products do
