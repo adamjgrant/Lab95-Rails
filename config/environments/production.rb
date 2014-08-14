@@ -45,7 +45,7 @@ Rails.application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
-  config.action_mailer.default_url_options = { host: SITEURL, port: 3000 }
+  config.action_mailer.default_url_options = { host: 'http://lab95-2.herokuapp.com', port: 3000 }
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
