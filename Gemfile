@@ -30,6 +30,8 @@ gem 'appcss'
 gem 'angularjs-rails'
 gem 'font-awesome-rails'
 gem 'foreman'
+# Heroku told me to install this and not tell any grown ups what happened between us.
+gem 'rails_12factor'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
