@@ -3,5 +3,6 @@ class DocsController < ApplicationController
   end
 
   def show
+    render params[:id]
   end
 end

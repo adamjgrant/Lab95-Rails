@@ -14,6 +14,43 @@ html(ng-app="lab95")
         li
           a(href="/") #{SITENAME}
 
-    = content_for?(:content) ? yield(:content) : yield
+    // User is logged in
+    aside.acss-sidebar
+      header
+        h1 Get Started
+      ul
+        li
+          a href="" Sign up free
+        li
+          a href="" Login
+
+      header
+        h1 Documentation
+      ul
+        li
+          a href="/docs/how-it-works" How it works
+        li
+          a href="/docs/quickstart" Quickstart
+
+      header
+        h1 Public
+        aside.tools
+          span
+            span.fa.fa-plus
+            .tooltip Add
+      ul
+        li
+          a href="" Option
+          input type="text" value="Option" data-href="/a/b/c/file.json"
+          aside.tools
+            span#edit
+              span.fa.fa-pencil
+              .tooltip Edit
+            span#edit
+              span.fa.fa-trash-o
+              .tooltip Delete
+
+    main.acss-mainpane
+      = content_for?(:content) ? yield(:content) : yield
 
     footer
