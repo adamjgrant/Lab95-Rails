@@ -9,6 +9,8 @@ html(ng-app="lab95")
     script try{Typekit.load();}catch(e){}
     title #{SITENAME}
   body
+    .notice = notice
+    .alert = alert
     nav.acss-navbar
       ul
         li
@@ -20,9 +22,9 @@ html(ng-app="lab95")
         h1 Get Started
       ul
         li
-          a href="" Sign up free
+          a href="/signup" Sign up free
         li
-          a href="" Login
+          a href="/login" Login
 
       header
         h1 Documentation
