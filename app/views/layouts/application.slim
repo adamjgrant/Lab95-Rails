@@ -9,22 +9,30 @@ html(ng-app="lab95")
     script try{Typekit.load();}catch(e){}
     title #{SITENAME}
   body
-    .notice = notice
-    .alert = alert
     nav.acss-navbar
       ul
         li
           a(href="/") #{SITENAME}
 
-    // User is logged in
     aside.acss-sidebar
-      header
-        h1 Get Started
-      ul
-        li
-          a href="/signup" Sign up free
-        li
-          a href="/login" Login
+      - if user_signed_in?
+
+        header
+          h1 Account
+        ul
+          li
+            = link_to('Settings', edit_user_registration_path)
+          li
+            = link_to('Logout', destroy_user_session_path, :method => :delete)
+      - else
+
+        header
+          h1 Get Started
+        ul
+          li
+            = link_to('Sign Up', new_user_registration_path)
+          li
+            = link_to('Login', new_user_session_path)
 
       header
         h1 Documentation
@@ -56,4 +64,6 @@ html(ng-app="lab95")
       .acss-readable-container
         = content_for?(:content) ? yield(:content) : yield
 
-    footer
+      footer
+        .notice = notice
+        .alert = alert
