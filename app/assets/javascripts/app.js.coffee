@@ -1,10 +1,10 @@
 lab95 = angular.module('lab95', []).config ($interpolateProvider) ->
   # $interpolateProvider.startSymbol('((').endSymbol('))')
 
-lab95.controller 'ViewCtrl', ($scope) ->
+lab95.controller 'ViewCtrl', ['$scope', ($scope) ->
 
   # Set of data and CRUD functions for panels
-  $scope.panel = 
+  $scope.panel =
     sections: [
       title: 'Defaults'
       options: [
@@ -31,3 +31,4 @@ lab95.controller 'ViewCtrl', ($scope) ->
     read: ->
     update: ->
     delete: ->
+]
