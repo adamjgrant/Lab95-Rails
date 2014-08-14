@@ -8,19 +8,19 @@ aside.acss-sidebar
       a(href="") Statistics
   div(ng-repeat="section in panel.sections")
     header
-      h1 
+      h1
         | {{section.title}}
-      aside.tools
-        span(ng-click="panel.create(section)")
-          span.fa.fa-plus
-          .tooltip Add
+        aside.tools
+          span(ng-click="panel.create(section)")
+            span.fa.fa-plus
+            .tooltip Add
     ul
       li(ng-repeat="option in section.options" class="{{ option.edit ? 'edit' : '' }}")
-        a(href="{{option.route}}") 
+        a(href="{{option.route}}")
           | {{option.title}}
         input type="text" value="{{option.title}}" data-href="/a/b/c/file.json"
         aside.tools
-          span#edit 
+          span#edit
             span.fa.fa-pencil
             .tooltip Edit
           span#edit
