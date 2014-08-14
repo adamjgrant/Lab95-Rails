@@ -12,7 +12,9 @@ html(ng-app="lab95")
     nav.acss-navbar
       ul
         li
-          a(href="/") #{SITENAME}
+          a(href="/")
+            = image_tag('cog.png')
+            | #{SITENAME}
 
     aside.acss-sidebar
       - if user_signed_in?
