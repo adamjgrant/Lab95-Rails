@@ -35,10 +35,15 @@ html(ng-app="lab95")
                 .tooltip Add new panel
                 = link_to("", user_panels_path(user_id:current_user.id), class: "fa fa-plus", :method => :post, remote: true)
         ul
-          li
-            a
-              em You have not created any panels.
-          - for panel in current_user.panels
+
+          - if @panels.blank?
+
+            li
+              a
+                em You have not created any panels.
+
+          - for panel in @panels
+
             li
               = link_to(panel.name, user_panel_path(user_id:current_user.id, id:panel.id))
               aside.tools
