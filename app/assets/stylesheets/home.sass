@@ -2,13 +2,23 @@
   box-sizing: border-box
 
 html
-  font-size: 16px
   font-family: 'proxima-nova', 'Helvetica Neue', helvetica, sans-serif
-  background-color: hsl(89, 50%, 27%)
+  // background-color: hsl(89, 50%, 27%)
 
 body
   font-size: 1rem
 
   h1
     font-family: 'proxima-nova-condensed'
-    text-transform: uppercase
+
+.acss-navbar
+  ul
+    &:first-child
+      li
+        &:first-child
+          a
+            img
+              display: inline-block
+              margin-right: 4px
+              height: 20px
+              vertical-align: top

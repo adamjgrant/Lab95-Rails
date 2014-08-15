@@ -7,14 +7,65 @@ html(ng-app="lab95")
     = csrf_meta_tags
     script type="text/javascript" src="//use.typekit.net/lky1ayb.js"
     script try{Typekit.load();}catch(e){}
-    title Lab95
-  body(ng-controller="ViewCtrl")
-    header.acss-header
-      nav
+    title #{SITENAME}
+  body
+    nav.acss-navbar
+      ul
+        li
+          a(href="/")
+            = image_tag('cog.png')
+            | #{SITENAME}
+
+    aside.acss-sidebar
+      - if user_signed_in?
+
+        header
+          h1 Account
         ul
           li
-            a(href="/") Lab95
+            = link_to('Settings', edit_user_registration_path)
+          li
+            = link_to('Logout', destroy_user_session_path, :method => :delete)
+      - else
 
-    == yield
+        header
+          h1 Get Started
+        ul
+          li
+            = link_to('Sign Up', new_user_registration_path)
+          li
+            = link_to('Login', new_user_session_path)
 
-    footer
+      header
+        h1 Documentation
+      ul
+        li
+          a href="/docs/how-it-works" How it works
+        li
+          a href="/docs/quickstart" Quickstart
+
+      header
+        h1 Public
+        aside.tools
+          span
+            span.fa.fa-plus
+            .tooltip Add
+      ul
+        li
+          a href="" Option
+          input type="text" value="Option" data-href="/a/b/c/file.json"
+          aside.tools
+            span#edit
+              span.fa.fa-pencil
+              .tooltip Edit
+            span#edit
+              span.fa.fa-trash-o
+              .tooltip Delete
+
+    main.acss-mainpane
+      .acss-readable-container
+        = content_for?(:content) ? yield(:content) : yield
+
+      footer
+        .notice = notice
+        .alert = alert
