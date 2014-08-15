@@ -33,7 +33,7 @@ html(ng-app="lab95")
             aside.tools
               span
                 .tooltip Add new panel
-                a.fa.fa-plus(href="#")
+                = link_to("", panels_path, class: "fa fa-plus", :method => :delete)
         ul
           li
             a
