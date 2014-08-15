@@ -38,6 +38,9 @@ html(ng-app="lab95")
           li
             a
               em You have not created any panels.
+          - for panel in current_user.panels
+            li
+              a(href="#") foo
 
       - else
 
