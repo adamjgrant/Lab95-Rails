@@ -26,6 +26,7 @@ html(ng-app="lab95")
             = link_to('Settings', edit_user_registration_path)
           li
             = link_to('Logout', destroy_user_session_path, :method => :delete)
+
       - else
 
         header
@@ -67,5 +68,8 @@ html(ng-app="lab95")
         = content_for?(:content) ? yield(:content) : yield
 
       footer
-        .notice = notice
-        .alert = alert
+        - if notice
+          script $(document).ready(function(){$.growl({title: '#{notice}', delay: 1500 });})
+
+        - if alert
+          script $(document).ready(function(){$.growl({title: '#{alert}', type: 'error', delay: 2500 });})
