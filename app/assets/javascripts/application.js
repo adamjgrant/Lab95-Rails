@@ -17,4 +17,5 @@
 //= require angular-route
 //= require home
 //= require app
+//= require tinygrowl
 //= require_tree ./controllers/
