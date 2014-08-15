@@ -27,6 +27,18 @@ html(ng-app="lab95")
           li
             = link_to('Logout', destroy_user_session_path, :method => :delete)
 
+        header
+          h1
+            | My Panels
+            aside.tools
+              span
+                .tooltip Add new panel
+                a.fa.fa-plus(href="#")
+        ul
+          li
+            a
+              em You have not created any panels.
+
       - else
 
         header
