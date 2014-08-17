@@ -1,9 +1,8 @@
 class PanelsController < ApplicationController
-  def create
-    @panel = Panel.create(name: "New Panel", user_id: current_user.id)
 
-    # redirect_via_turbolinks_to root_path
-    render :show
+  def create
+    @panel = Panel.create(:name => "New Panel", :user_id => current_user.id)
+    render :show, :id => @panel.id
   end
 
   def show
