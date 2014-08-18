@@ -38,6 +38,7 @@ gem 'redcarpet'
 
 # User authentication, for clients, not public users
 gem 'devise'
+gem 'zeus'
 
 # For encryption
 gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
@@ -53,3 +54,6 @@ gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem 'better_errors'
+end

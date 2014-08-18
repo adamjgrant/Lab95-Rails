@@ -3,7 +3,6 @@ html(ng-app="lab95")
   head
     = stylesheet_link_tag asset_path "appcss/app.css"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     script type="text/javascript" src="//use.typekit.net/lky1ayb.js"
     script try{Typekit.load();}catch(e){}
@@ -46,6 +45,7 @@ html(ng-app="lab95")
 
             li
               = link_to(panel.name, user_panel_path(user_id:current_user.id, id:panel.id))
+              input(type="text" value="#{panel.name}" data-panel-id="#{panel.id}" data-user-id="#{current_user.id}")
               aside.tools
                 = link_to('<div class="tooltip">Delete</div>'.html_safe, user_panel_path(user_id:current_user.id, id:panel.id), :method => :delete, class: "fa fa-trash-o", remote: true)
                 a.edit.fa.fa-edit
@@ -99,3 +99,4 @@ html(ng-app="lab95")
           script $(document).ready(function(){$.growl({title: '#{alert}', type: 'error', delay: 2500 });})
 
         = javascript_include_tag asset_path "appcss/app.js"
+        = javascript_include_tag 'application', 'data-turbolinks-track' => true
