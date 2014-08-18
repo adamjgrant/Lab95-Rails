@@ -1,15 +1,15 @@
 class PanelsController < ApplicationController
 
   def index
-    @panels = current_user.panels
+    @panels = Panel.where(user_id: current_user.id)
   end
 
   def create
-    @panel = Panel.new(name: "New Panel")
+    @panel = Panel.new(name: "New Panel", user_id: current_user.id)
 
     if @panel.save
       # Could not get shorthand way to do this to work.
-      redirect_to action: "show", id: @panel.id, user_id: current_user.id, notice: "Successfully created"
+      redirect_to @panel
     end
   end
 
