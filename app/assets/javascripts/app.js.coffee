@@ -1,3 +1,10 @@
+updateBinder = (id, str, useValue) ->
+  $binder = $("[data-app-bind=#{id}]")
+  if useValue
+    $($binder).val str
+  else
+    $($binder).html str
+
 $('.edit').click ->
   $li = $(this).closest('li')
   $input = $($li).find('input[type="text"]')
@@ -5,9 +12,6 @@ $('.edit').click ->
   $($input).focus().select()
 
   saveInput = (el) ->
-
-    # Update names
-    $($li).children('a').html($($input).val())
 
     # Revert to view mode
     $($li).removeClass('edit')
@@ -23,8 +27,8 @@ $('.edit').click ->
 
   $($input).keyup (e) ->
 
-    # Update the title in realtime.
-    $("h1[data-app-bind=panel-#{$input[0].dataset.panelId}]").html $($input).val()
+    # Update titles in realtime.
+    updateBinder "panel-#{$input[0].dataset.panelId}", $($input).val()
 
     # On enter...
     if e.keyCode == 13

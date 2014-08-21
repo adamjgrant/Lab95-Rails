@@ -44,7 +44,7 @@ html(ng-app="lab95")
           - for panel in @panels
 
             li
-              = link_to(panel.name, panel_path(id:panel.id))
+              = link_to(panel.name, panel_path(id:panel.id), data: { app_bind: "panel-#{panel.id}" })
               input(type="text" value="#{panel.name}" data-panel-id="#{panel.id}" data-user-id="#{current_user.id}")
               aside.tools
                 = link_to("<div class='tooltip'>#{t('sidebar.delete')}</div>".html_safe, panel_path(id:panel.id), :method => :delete, class: "fa fa-trash-o", remote: true)
