@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, path_names:{ sign_in: 'login', sign_up: 'signup', edit: 'account' }
 
-  resources :users, :panels
+  resources :users
+  resources :panels do
+    resources :widgets
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

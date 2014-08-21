@@ -2,4 +2,8 @@
   header
     h1 data-app-bind="panel-#{@panel.id}" = @panel.name
     nav
-      a href="#" Create new widget
+      = link_to 'Create new widget', panel_widgets_path(panel_id: @panel.id), remote: true, :method => :post
+
+  main
+    - for widget in @panel.widgets
+      p #{widget.name}

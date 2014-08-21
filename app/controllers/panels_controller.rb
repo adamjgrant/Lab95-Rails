@@ -8,13 +8,13 @@ class PanelsController < ApplicationController
     @panel = Panel.new(name: "New Panel", user_id: current_user.id)
 
     if @panel.save
-      # Could not get shorthand way to do this to work.
       redirect_to @panel
     end
   end
 
   def show
     @panel = Panel.find(params[:id])
+    render :show
   end
 
   def destroy
@@ -30,6 +30,7 @@ class PanelsController < ApplicationController
     if @panel.update(name: params[:name])
       render :nothing => true, status: 200
     else
+      # TODO Pretend to be a legitimate developer
       raise "shit"
     end
   end
