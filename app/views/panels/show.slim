@@ -5,6 +5,14 @@
       = link_to 'Create new widget', panel_widgets_path(panel_id: @panel.id), :method => :post
 
   main.panel
-    - for widget in @panel.widgets
-      .widget
-        h2 #{widget.name}
+    - if @panel.widgets.length > 0
+      - for widget in @panel.widgets
+        .widget
+          h2 #{widget.name}
+
+    - else
+
+      .widget(disabled)
+        h2 Create your first widget.
+        p Each widget is a property users can set in your panel, so add as many as you need.
+        p Click "Create new widget" above to make your first one.
