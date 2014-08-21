@@ -22,6 +22,7 @@ $('.edit').click ->
     saveInput this
 
   $($input).keyup (e) ->
+    $("h1[data-app-bind=panel-#{$input[0].dataset.panelId}]").html $($input).val()
     if e.keyCode == 13
       saveInput this
 
