@@ -27,7 +27,7 @@ gem 'spring',        group: :development
 gem 'pg'
 gem 'slim'
 gem 'appcss'
-gem 'angularjs-rails'
+# gem 'angularjs-rails'
 gem 'font-awesome-rails'
 gem 'foreman'
 # Heroku told me to install this and not tell any grown ups what happened between us.

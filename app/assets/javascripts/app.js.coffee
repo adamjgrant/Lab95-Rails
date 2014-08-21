@@ -1,17 +1,31 @@
 $('.edit').click ->
   $li = $(this).closest('li')
   $input = $($li).find('input[type="text"]')
-  console.log $input
+  $($li).addClass('edit')
+  $($input).focus().select()
 
-  $li.addClass 'edit'
-  $($input).blur ->
-    id = this.dataset.panelId
-    user_id = this.dataset.userId
+  saveInput = (el) ->
+
+    # Update names
+    $($li).children('a').html($($input).val())
+
+    # Revert to view mode
+    $($li).removeClass('edit')
     $.ajax
-      url: "/users/#{user_id}/panels/#{id}"
+      url: "/panels/#{el.dataset.panelId}"
       data:
-        name: $input.value
-      type: "PATCH"
+        name: $($input).val()
+      type: "PUT"
+      dataType: 'json'
 
+  $($input).blur ->
+    saveInput this
+
+  $($input).keyup (e) ->
+    if e.keyCode == 13
+      saveInput this
+
+###
 window.lab95 = angular.module('lab95', []).config ($interpolateProvider) ->
   # $interpolateProvider.startSymbol('((').endSymbol('))')
+###

@@ -26,8 +26,11 @@ class PanelsController < ApplicationController
 
   def update
   	@panel = Panel.find(params[:id])
+
     if @panel.update(name: params[:name])
-      render :index
+      render :nothing => true, status: 200
+    else
+      raise "shit"
     end
   end
 end
