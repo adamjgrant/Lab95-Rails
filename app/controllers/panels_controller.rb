@@ -14,7 +14,6 @@ class PanelsController < ApplicationController
 
   def show
     @panel = Panel.find(params[:id])
-    render :show
   end
 
   def destroy
