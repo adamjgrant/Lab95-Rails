@@ -22,7 +22,11 @@ $('.edit').click ->
     saveInput this
 
   $($input).keyup (e) ->
+
+    # Update the title in realtime.
     $("h1[data-app-bind=panel-#{$input[0].dataset.panelId}]").html $($input).val()
+
+    # On enter...
     if e.keyCode == 13
       saveInput this
 
