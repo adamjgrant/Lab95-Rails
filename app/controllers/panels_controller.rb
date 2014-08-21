@@ -5,7 +5,7 @@ class PanelsController < ApplicationController
   end
 
   def create
-    @panel = Panel.new(name: "New Panel", user_id: current_user.id)
+    @panel = Panel.new(name: t('panels.new.new_panel_text'), user_id: current_user.id)
 
     if @panel.save
       redirect_to @panel

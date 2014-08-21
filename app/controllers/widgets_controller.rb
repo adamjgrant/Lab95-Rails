@@ -6,7 +6,7 @@ class WidgetsController < ApplicationController
   def create
     @panel = Panel.find(params[:panel_id])
 
-    widget = @panel.widgets.new(name: 'New Widget')
+    widget = @panel.widgets.new(name: t('panels.show.new_widget_text'))
 
     if widget.save
       redirect_to @panel

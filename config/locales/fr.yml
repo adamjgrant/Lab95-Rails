@@ -1,0 +1,19 @@
+fr:
+  hello: "Bonjour le Monde"
+  sidebar:
+    account: "Ma Compte"
+    my_panels: "Mes Panels"
+    documentation: "Documentation"
+    add_new_panel: "Creer un nouveau panel"
+    settings: "Paramètres"
+    logout: "Deconnexion"
+    rename: "Renommer"
+    delete: "Supprimer"
+  panels:
+    new:
+      new_panel_text: "Nouveau Panel"
+    show:
+      create_first_widget: "Creer ton premier widget"
+      create_first_widget_instructions: "Cliquez sur \"Creer un widget\" au-dessus pour creer votre premier widget. Chaque widget est un proprieté qui vous pouvez modifier dans votre panel. Ajouter tout dont vous avez besoin."
+      create_widget_title: "Creer un widget"
+      new_widget_text: "Nouveau Widget"

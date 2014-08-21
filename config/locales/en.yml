@@ -21,3 +21,20 @@
 
 en:
   hello: "Hello world"
+  sidebar:
+    account: "Account"
+    my_panels: "My Panels"
+    documentation: "Documentation"
+    add_new_panel: "Add new panel"
+    settings: "Settings"
+    logout: "Logout"
+    rename: "Rename"
+    delete: "Delete"
+  panels:
+    new:
+      new_panel_text: "New Panel"
+    show:
+      create_first_widget: "Create your first widget"
+      create_first_widget_instructions: "Click \"Create widget\" above to make your first widget. Each widget is a property users can set in your panel, so add as many as you need."
+      create_widget_title: "Create widget"
+      new_widget_text: "New Widget"

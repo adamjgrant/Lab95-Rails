@@ -40,6 +40,9 @@ gem 'redcarpet'
 gem 'devise'
 gem 'zeus'
 
+# i18n
+gem 'http_accept_language'
+
 # For encryption
 gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
 # Use ActiveModel has_secure_password
