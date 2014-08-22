@@ -34,7 +34,5 @@ en:
     new:
       new_panel_text: "New Panel"
     show:
-      create_first_widget: "Create your first widget"
-      create_first_widget_instructions: "Click \"Create widget\" above to make your first widget. Each widget is a property users can set in your panel, so add as many as you need."
-      create_widget_title: "Create widget"
+      create_widget_title: "Create new widget"
       new_widget_text: "New Widget"

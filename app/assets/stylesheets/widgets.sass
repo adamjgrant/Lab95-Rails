@@ -1,6 +1,26 @@
 @import base
 
 .panel
+  ul
+    padding: 0
+    margin: 0
+    list-style: none
+
+    li
+      border: 1px solid $lightest-gray
+      padding: 5px
+      position: absolute
+      z-index: 2
+      background: white
+      cursor: move
+
+      &.player
+        z-index: 9
+        box-shadow: -1px 1px 7px $metal
+
+      &.preview-holder
+        background-color: lighten($metal, 60%)
+
   .widget
     border: 1px solid $lightest-gray
     padding: 15px

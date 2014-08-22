@@ -5,13 +5,7 @@
       = link_to t('.create_widget_title'), panel_widgets_path(panel_id: @panel.id), :method => :post
 
   main.panel
-    - if @panel.widgets.length > 0
-      - for widget in @panel.widgets
-        .widget
-          h2 #{widget.name}
-
-    - else
-
-      .widget(disabled)
-        h2 = t '.create_first_widget'
-        p = t '.create_first_widget_instructions'
+    ul
+      - if @panel.widgets.length > 0
+        - @panel.widgets.each_with_index do |widget, index|
+          li data-row="1" data-col="#{index + 1}" data-sizex="4" data-sizey="1" #{widget.name}

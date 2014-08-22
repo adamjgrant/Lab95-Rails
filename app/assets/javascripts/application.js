@@ -19,3 +19,4 @@
 //= require app
 //= require tinygrowl
 //= require_tree ./controllers/
+//= require_tree ../../../vendor/assets/javascripts/.

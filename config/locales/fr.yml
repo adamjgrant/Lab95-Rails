@@ -13,7 +13,5 @@ fr:
     new:
       new_panel_text: "Nouveau Panel"
     show:
-      create_first_widget: "Creer ton premier widget"
-      create_first_widget_instructions: "Cliquez sur \"Creer un widget\" au-dessus pour creer votre premier widget. Chaque widget est un proprieté qui vous pouvez modifier dans votre panel. Ajouter tout dont vous avez besoin."
-      create_widget_title: "Creer un widget"
+      create_widget_title: "Creer un nouveau widget"
       new_widget_text: "Nouveau Widget"
