@@ -8,4 +8,6 @@
     ul
       - if @panel.widgets.length > 0
         - @panel.widgets.each_with_index do |widget, index|
-          li data-row="1" data-col="#{index + 1}" data-sizex="4" data-sizey="1" #{widget.name}
+          li data-row="1" data-col="#{index + 1}" data-sizex="4" data-sizey="1"
+            p
+              strong #{widget.name}
