@@ -13,6 +13,17 @@ class WidgetsController < ApplicationController
     end
   end
 
+  def update
+    @panel = Panel.find(params[:panel_id])
+    widget = @panel.widgets.find(params[:id])
+
+    if widget.update(widget_params)
+      render :nothing => true, status: 200
+    else
+      render @panel, :alert => "Could not update widget due to an internal error"
+    end
+  end
+
   private
     def widget_params
       params.require(:widget).permit(:name, :widget_type)

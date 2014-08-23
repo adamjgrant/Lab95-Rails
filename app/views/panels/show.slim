@@ -2,8 +2,8 @@ main.panel
   ul
     - if @panel.widgets.length > 0
       - @panel.widgets.each_with_index do |widget, index|
-        li data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1"
-          input type="text" value="#{widget.name}"
+        li.widget data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1"
+          input type="text" value="#{widget.name}" data-panel-id="#{@panel.id}" data-widget-id="#{widget.id}"
 
           - case widget.widget_type
           - when 'slider'

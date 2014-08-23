@@ -16,8 +16,20 @@
       background: white
       cursor: move
 
-      h1
+      h1, input[type=text]
         +heading_xs
+        font-weight: bold
+      
+      input[type=text]
+        $leftPadding: 5px
+        border-color: transparent
+        margin:
+          left: -$leftPadding
+          bottom: 15px
+        padding-left: $leftPadding
+
+        &:hover
+          border-color: $lighter-gray
 
       &.player
         z-index: 9
@@ -27,7 +39,8 @@
         background-color: lighten($metal, 60%)
 
   .widget
-    border: 1px solid $lightest-gray
+    border:
+      bottom: 1px solid $lighter-gray
     padding: 15px
     margin-bottom: 15px
 

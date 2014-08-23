@@ -5,44 +5,66 @@ updateBinder = (id, str, useValue) ->
   else
     $($binder).html str
 
-$('.edit').click ->
-  $li = $(this).closest('li')
-  $input = $($li).find('input[type="text"]')
-  $($li).addClass('edit')
-  $($input).focus().select()
+ready = ->
+  if typeof $.fn.gridster == 'function'
+    $('.panel ul').gridster
+      widget_margins: [0, 0]
+      widget_base_dimensions: [600, 100]
 
-  saveInput = (el) ->
+  # Save panel titles
+  $('.acss-sidebar .edit').click ->
+    $li = $(this).closest('li')
+    $input = $($li).find('input[type="text"]')
+    $($li).addClass('edit')
+    $($input).focus().select()
 
-    # Revert to view mode
-    $($li).removeClass('edit')
-    $.ajax
-      url: "/panels/#{el.dataset.panelId}"
-      data:
-        name: $($input).val()
-      type: "PUT"
-      dataType: 'json'
+    saveInput = (el) ->
 
-  $($input).blur ->
-    saveInput this
+      # Revert to view mode
+      $($li).removeClass('edit')
+      $.ajax
+        url: "/panels/#{el.dataset.panelId}"
+        data:
+          name: $($input).val()
+        type: "PUT"
+        dataType: 'json'
 
-  $($input).keyup (e) ->
-
-    # Update titles in realtime.
-    updateBinder "panel-#{$input[0].dataset.panelId}", $($input).val()
-
-    # On enter...
-    if e.keyCode == 13
+    $($input).blur ->
       saveInput this
 
-ready = ->
-  $('.panel ul').gridster
-    widget_margins: [0, 0]
-    widget_base_dimensions: [600, 75]
+    $($input).keyup (e) ->
+
+      # Update titles in realtime.
+      updateBinder "panel-#{$input[0].dataset.panelId}", $($input).val()
+
+      # On enter...
+      if e.keyCode == 13
+        saveInput this
+
+  # Save Widget information
+  $('.widget input[type=text]').click ->
+    console.info 'clicked'
+    $input = this
+    saveInput = (el) ->
+
+      $.ajax
+        url: "/panels/#{el.dataset.panelId}/widgets/#{el.dataset.widgetId}"
+        data:
+          widget:
+            name: $($input).val()
+        type: "PUT"
+        dataType: 'json'
+        success: () ->
+          A.status
+            title: 'Widget updated'
+
+    $(this).keyup (e) ->
+      if e.keyCode == 13
+        saveInput this
+
+    $(this).blur ->
+      saveInput this
+
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
-
-###
-window.lab95 = angular.module('lab95', []).config ($interpolateProvider) ->
-  # $interpolateProvider.startSymbol('((').endSymbol('))')
-###
