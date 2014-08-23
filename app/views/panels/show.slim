@@ -3,8 +3,13 @@ main.panel
     - if @panel.widgets.length > 0
       - @panel.widgets.each_with_index do |widget, index|
         li data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1"
-          p
-            strong #{widget.name}
+          h1 #{widget.name}
+
+          - case widget.type
+          - when 'slider'
+            p Slider
+          - when 'switch'
+            p Switch
 
 aside.panel-actions
   h1 Panel Actions
