@@ -8,7 +8,7 @@ class PanelsController < ApplicationController
     @panel = Panel.new(name: t('panels.new.new_panel_text'), user_id: current_user.id)
 
     if @panel.save
-      redirect_to @panel
+      redirect_to @panel, :notice => 'Panel created'
     end
   end
 
@@ -19,7 +19,7 @@ class PanelsController < ApplicationController
   def destroy
   	@panel = Panel.find(params[:id])
   	if @panel.destroy
-      redirect_via_turbolinks_to root_path
+      redirect_via_turbolinks_to root_path, :notice => 'Panel removed'
     end
   end
 

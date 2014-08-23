@@ -35,12 +35,9 @@ $('.edit').click ->
       saveInput this
 
 ready = ->
-  console.info 'Calling ready'
   $('.panel ul').gridster
-    widget_margins: [10, 10],
-    widget_base_dimensions: [150, 150]
-    autogenerate_stylesheet: true
-    avoid_overlapped_widgets: true
+    widget_margins: [0, 0]
+    widget_base_dimensions: [600, 75]
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

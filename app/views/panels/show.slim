@@ -1,13 +1,11 @@
-.acss-readable-container
-  header
-    h1 data-app-bind="panel-#{@panel.id}" = @panel.name
-    nav
-      = link_to t('.create_widget_title'), panel_widgets_path(panel_id: @panel.id), :method => :post
+main.panel
+  ul
+    - if @panel.widgets.length > 0
+      - @panel.widgets.each_with_index do |widget, index|
+        li data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1"
+          p
+            strong #{widget.name}
 
-  main.panel
-    ul
-      - if @panel.widgets.length > 0
-        - @panel.widgets.each_with_index do |widget, index|
-          li data-row="1" data-col="#{index + 1}" data-sizex="4" data-sizey="1"
-            p
-              strong #{widget.name}
+aside.panel-actions
+  h1 Panel Actions
+  = link_to t('.create_widget_title'), panel_widgets_path(panel_id: @panel.id), :method => :post

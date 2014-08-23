@@ -70,14 +70,15 @@ html(ng-app="lab95")
           a href="/docs/quickstart" Quickstart
 
     main.acss-mainpane
+      .acss-status
       = content_for?(:content) ? yield(:content) : yield
 
       footer
-        - if notice
-          script $(document).ready(function(){$.growl({title: '#{notice}', delay: 1500 });})
-
-        - if alert
-          script $(document).ready(function(){$.growl({title: '#{alert}', type: 'error', delay: 2500 });})
-
         = javascript_include_tag 'application', 'data-turbolinks-track' => true
         = javascript_include_tag asset_path "appcss/app.js"
+        - if notice
+          script $(document).ready(function() { A.status({ title: '#{notice}' }) });
+
+        - if alert
+          script $(document).ready(function() { A.status({ title: '#{alert}' }) });
+
