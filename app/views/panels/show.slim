@@ -5,12 +5,19 @@ main.panel
         li data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1"
           h1 #{widget.name}
 
-          - case widget.type
+          - case widget.widget_type
           - when 'slider'
             p Slider
           - when 'switch'
             p Switch
+          - else
+            p Could not get widget type
 
 aside.panel-actions
   h1 Panel Actions
-  = link_to t('.create_widget_title'), panel_widgets_path(panel_id: @panel.id), :method => :post
+  p
+    a(href="#") 
+      span.fa.fa-arrows
+      |  Move widgets
+  p
+    = link_to "<span class='fa fa-plus'></span> #{t('.create_widget_title')}".html_safe, panel_widgets_path(panel_id: @panel.id), :method => :post

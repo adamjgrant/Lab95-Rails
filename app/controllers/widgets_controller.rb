@@ -15,6 +15,6 @@ class WidgetsController < ApplicationController
 
   private
     def widget_params
-      params.require(:widget).permit(:name)
+      params.require(:widget).permit(:name, :widget_type)
     end
 end
