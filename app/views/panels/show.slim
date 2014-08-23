@@ -3,7 +3,7 @@ main.panel
     - if @panel.widgets.length > 0
       - @panel.widgets.each_with_index do |widget, index|
         li data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1"
-          h1 #{widget.name}
+          input type="text" value="#{widget.name}"
 
           - case widget.widget_type
           - when 'slider'
@@ -15,9 +15,5 @@ main.panel
 
 aside.panel-actions
   h1 Panel Actions
-  p
-    a(href="#") 
-      span.fa.fa-arrows
-      |  Move widgets
   p
     = link_to "<span class='fa fa-plus'></span> #{t('.create_widget_title')}".html_safe, panel_widgets_path(panel_id: @panel.id), :method => :post
