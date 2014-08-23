@@ -18,7 +18,10 @@ class WidgetsController < ApplicationController
     widget = @panel.widgets.find(params[:id])
 
     if widget.update(widget_params)
-      render :nothing => true, status: 200
+      # render :nothing => true, status: 200
+      respond_to do |format|
+        format.json { render :json => widget }
+      end
     else
       render @panel, :alert => "Could not update widget due to an internal error"
     end
