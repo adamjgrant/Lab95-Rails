@@ -28,7 +28,7 @@ ready = ->
       url: "/panels/#{$(this).closest('li')[0].dataset.panelId}/widgets/#{$(this).closest('li')[0].dataset.widgetId}"
       data:
         widget:
-          widget_type: $($select).val()
+          input: parseInt $($select).val()
       type: "PUT"
       dataType: 'json'
       success: ->

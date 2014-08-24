@@ -6,13 +6,13 @@ main.panel
           input type="text" value="#{widget.name}"
 
           p
-            = select_tag :widget_type, options_for_select([['Slider', 1], ['Switch', 2]])
+            = select_tag :input, options_for_select([['Slider', 0], ['Switch', 1]], widget.input)
 
-          - case widget.widget_type
-          - when "1"
+          - case widget.input
+          - when 0
             p
               input.topcoat-range type="range"
-          - when "2"
+          - when 1
             label.topcoat-switch
               input.topcoat-switch__input type="checkbox"
               |
