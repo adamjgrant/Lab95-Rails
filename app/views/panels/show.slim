@@ -2,16 +2,24 @@ main.panel
   ul
     - if @panel.widgets.length > 0
       - @panel.widgets.each_with_index do |widget, index|
-        li.widget data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1"
-          input type="text" value="#{widget.name}" data-panel-id="#{@panel.id}" data-widget-id="#{widget.id}"
+        li.widget data-row="#{index + 1}" data-col="1" data-sizex="1" data-sizey="1" data-panel-id="#{@panel.id}" data-widget-id="#{widget.id}"
+          input type="text" value="#{widget.name}"
+
+          p
+            = select_tag :widget_type, options_for_select([['Slider', 1], ['Switch', 2]])
 
           - case widget.widget_type
-          - when 'slider'
-            p Slider
-          - when 'switch'
-            p Switch
+          - when "1"
+            p
+              input.topcoat-range type="range"
+          - when "2"
+            label.topcoat-switch
+              input.topcoat-switch__input type="checkbox"
+              |
+              div.topcoat-switch__toggle
+
           - else
-            p Could not get widget type
+            p Widget type not found: #{widget.widget_type}
 
 aside.panel-actions
   h1 Panel Actions

@@ -9,7 +9,7 @@ ready = ->
   if typeof $.fn.gridster == 'function'
     $('.panel ul').gridster
       widget_margins: [0, 0]
-      widget_base_dimensions: [600, 100]
+      widget_base_dimensions: [600, 150]
 
   # Save panel titles
   $('.acss-sidebar .edit').click ->
@@ -41,14 +41,13 @@ ready = ->
       if e.keyCode == 13
         saveInput this
 
-  # Save Widget information
+  # Save Widget name
   $('.widget input[type=text]').click ->
-    console.info 'clicked'
     $input = this
     saveInput = (el) ->
       $.ajax
-        url: "/panels/#{el.dataset.panelId}/widgets/#{el.dataset.widgetId}"
-        data: 
+        url: "/panels/#{$(el).parent()[0].dataset.panelId}/widgets/#{$(el).parent()[0].dataset.widgetId}"
+        data:
           widget:
             name: $($input).val()
         type: "PUT"
@@ -63,6 +62,20 @@ ready = ->
 
     $(this).blur ->
       saveInput this
+
+  # Save Widget information
+  $('.widget select').change ->
+    $select = this
+    $.ajax
+      url: "/panels/#{$(this).closest('li')[0].dataset.panelId}/widgets/#{$(this).closest('li')[0].dataset.widgetId}"
+      data:
+        widget:
+          widget_type: $($select).val()
+      type: "PUT"
+      dataType: 'json'
+      success: ->
+        A.status
+          title: 'Widget updated'
 
 
 $(document).ready(ready)
