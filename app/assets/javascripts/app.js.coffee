@@ -46,23 +46,16 @@ ready = ->
     console.info 'clicked'
     $input = this
     saveInput = (el) ->
-
-      req = new XMLHttpRequest()
-      url = "/panels/#{el.dataset.panelId}/widgets/#{el.dataset.widgetId}.json"
-      data =
-        widget:
-          name: $($input).val()
-      data = JSON.stringify data
-      console.log data
-      req.open 'PUT', url, true
-      req.onload = ->
-        if req.status >= 200 && req.status < 400
-          resp = req.responseText
+      $.ajax
+        url: "/panels/#{el.dataset.panelId}/widgets/#{el.dataset.widgetId}"
+        data: 
+          widget:
+            name: $($input).val()
+        type: "PUT"
+        dataType: 'json'
+        success: ->
           A.status
             title: 'Widget updated'
-        else
-          console.error 'ajax error'
-      req.send(data) 
 
     $(this).keyup (e) ->
       if e.keyCode == 13
