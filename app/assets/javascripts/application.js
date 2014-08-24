@@ -17,6 +17,8 @@
 //= // require angular-route
 //= require home
 //= require app
+//= require widgets
+//= require panels
 //= require tinygrowl
 //= require_tree ./controllers/
 //= require_tree ../../../vendor/assets/javascripts/.

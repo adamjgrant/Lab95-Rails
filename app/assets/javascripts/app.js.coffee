@@ -1,4 +1,4 @@
-updateBinder = (id, str, useValue) ->
+window['updateBinder'] = (id, str, useValue) ->
   $binder = $("[data-app-bind=#{id}]")
   if useValue
     $($binder).val str
@@ -10,73 +10,6 @@ ready = ->
     $('.panel ul').gridster
       widget_margins: [0, 0]
       widget_base_dimensions: [600, 150]
-
-  # Save panel titles
-  $('.acss-sidebar .edit').click ->
-    $li = $(this).closest('li')
-    $input = $($li).find('input[type="text"]')
-    $($li).addClass('edit')
-    $($input).focus().select()
-
-    saveInput = (el) ->
-
-      # Revert to view mode
-      $($li).removeClass('edit')
-      $.ajax
-        url: "/panels/#{el.dataset.panelId}"
-        data:
-          name: $($input).val()
-        type: "PUT"
-        dataType: 'json'
-
-    $($input).blur ->
-      saveInput this
-
-    $($input).keyup (e) ->
-
-      # Update titles in realtime.
-      updateBinder "panel-#{$input[0].dataset.panelId}", $($input).val()
-
-      # On enter...
-      if e.keyCode == 13
-        saveInput this
-
-  # Save Widget name
-  $('.widget input[type=text]').click ->
-    $input = this
-    saveInput = (el) ->
-      $.ajax
-        url: "/panels/#{$(el).parent()[0].dataset.panelId}/widgets/#{$(el).parent()[0].dataset.widgetId}"
-        data:
-          widget:
-            name: $($input).val()
-        type: "PUT"
-        dataType: 'json'
-        success: ->
-          A.status
-            title: 'Widget updated'
-
-    $(this).keyup (e) ->
-      if e.keyCode == 13
-        saveInput this
-
-    $(this).blur ->
-      saveInput this
-
-  # Save Widget information
-  $('.widget select').change ->
-    $select = this
-    $.ajax
-      url: "/panels/#{$(this).closest('li')[0].dataset.panelId}/widgets/#{$(this).closest('li')[0].dataset.widgetId}"
-      data:
-        widget:
-          widget_type: $($select).val()
-      type: "PUT"
-      dataType: 'json'
-      success: ->
-        A.status
-          title: 'Widget updated'
-
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
