@@ -15,3 +15,7 @@ fr:
     show:
       create_widget_title: "Creer un nouveau widget"
       new_widget_text: "Nouveau Widget"
+    widgets:
+      inputs:
+        slider: "Slider"
+        switch: "Switch"

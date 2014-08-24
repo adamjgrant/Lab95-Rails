@@ -6,7 +6,7 @@ main.panel
           input type="text" value="#{widget.name}"
 
           p
-            = select_tag :input, options_for_select([['Slider', 0], ['Switch', 1]], widget.input), :onchange => "reload()"
+            = select_tag :input, options_for_select([[t('panels.widgets.inputs.slider'), 0], [t('panels.widgets.inputs.switch'), 1]], widget.input), :onchange => "reload()"
 
           - case widget.input
           - when 0

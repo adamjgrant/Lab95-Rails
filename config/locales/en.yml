@@ -36,3 +36,7 @@ en:
     show:
       create_widget_title: "Create new widget"
       new_widget_text: "New Widget"
+    widgets:
+      inputs:
+        slider: "Slider"
+        switch: "Switch"
