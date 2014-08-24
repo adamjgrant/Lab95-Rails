@@ -7,10 +7,20 @@
 
 There are two kinds of users, direct, devise-based users of the application who create panels and add widgets to them.
 
+# User complexity
+
 The other user is the "user of the user". 
-In the application, this will be defined as an "account"
+In the application, this will be defined as an ACCOUNT
 
 E.g. John uses the product to create a control panel for his application. 
 Tom, Dick, and Harry sign up on John's site. 
 
-John is a user who has three accounts, one for Tom, Dick, and Harry respectively.
+John is a USER who has three ACCOUNTS, one for Tom, Dick, and Harry respectively.
+
+## Now it gets more complicated
+
+A PANEL is the panel a USER. ACCOUNTS have SETTINGS.
+
+For example, USER John's "Profile" PANEL has WIDGETS gender and age.
+The profile PANEL is extended by ACCOUNT Tom. Each widget is extended as a SETTING.
+Tom creates two SETTINGS: Age: 20, Gender: Male
